@@ -8,6 +8,7 @@ import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
 marked.use({ gfm: true });
 
 function App() {
+  const API = import.meta.env.VITE_SERVER_URL;
   const [serverData, setServerData] = useState({ html: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -28,7 +29,7 @@ function App() {
     setServerData(""); // Clear previous server data
 
     if (userPrompt !== "") {
-      fetch("/api", {
+      fetch(API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
