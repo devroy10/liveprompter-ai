@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/api",
+      "destination": "https://react-chatbot-backend.vercel.app/api"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
