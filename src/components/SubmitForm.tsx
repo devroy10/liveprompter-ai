@@ -22,42 +22,43 @@ const SubmitForm = () => {
     }
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     setLoading(true); // Set loading to true at the start
     setError(null); // Reset error before fetching
     setServerData({ html: "" }); // Clear previous server data
 
     if (userPrompt !== "") {
-      fetch("/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt: userPrompt }),
-      })
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          const html = DOMPurify.sanitize(marked(data));
-          setServerData({ html }); // Update server data
-          inputRef.current?.focus();
-          setUserPrompt("");
-        })
-        .catch((err) => {
-          console.error("An error occurred:", err);
-          setError(err.message); // Set error message
-        })
-        .finally(() => {
-          setLoading(false); // Set loading to false after fetching
+      try {
+        const res = await fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ prompt: userPrompt }),
         });
+
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await res.json();
+        const htmlString = await marked(data); // Await if marked returns a Promise
+        const html = DOMPurify.sanitize(htmlString); // Sanitize the result
+
+        setServerData({ html }); // Update server data
+        inputRef.current?.focus();
+        setUserPrompt("");
+      } catch (err: any) {
+        console.error("An error occurred:", err);
+        setError(err.message); // Set error message
+      } finally {
+        setLoading(false); // Set loading to false after fetching
+      }
     } else {
       setLoading(false); // Ensure loading is set to false if no user prompt
     }
   }
+
 
   return (
     <form

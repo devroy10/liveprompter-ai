@@ -63,7 +63,7 @@ const Chat = () => {
   return (
     <section
       style={{
-        height: "calc(100vh - 2rem)",
+        height: "calc(100vh - 3rem)",
         padding: "1rem",
         display: "flex",
         flexDirection: "column",

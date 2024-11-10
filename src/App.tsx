@@ -1,39 +1,43 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import Chat from "./pages/chat/Chat";
 import NotFound from "./pages/NotFound";
 
-import "./App.css";
+
 function App() {
 
   return (
     // <HelmetProvider>
     // <ThemeProvider>
-    <>
-      <BrowserRouter >
-        {/* <Layout > */}
-        <Routes>
 
-          <Route path="/" element={<Home />} />
-          <Route path="/" element={<Layout />}>
-            <Route
-              path="chat"
-              element={<Chat />}
-            />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+    <Router >
+      <Routes>
 
-        {/* </Layout> */}
+        <Route path="/" element={<Home />} />
 
-      </BrowserRouter>
+        {/* Routes with sidebar */}
+        <Route element={<Layout />}>
+          <Route
+            path="/chat"
+            element={<Chat />}
+          />
+          {/* <Route path="/account" element={<Account />} /> */}
+        </Route>
 
-      {/* //  </HelmetProvider> */}
-      {/* // </ThemeProvider > */}
+        {/* Fallback for undefined routes */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
 
-    </>
+
+    </Router>
+
+    //   </HelmetProvider> 
+    // </ThemeProvider > 
+
+
   );
 }
 
