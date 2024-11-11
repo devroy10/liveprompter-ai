@@ -27,7 +27,7 @@ const SubmitForm = () => {
     setError(null); // Reset error before fetching
     setServerData({ html: "" }); // Clear previous server data
 
-    if (userPrompt !== "") {
+    if (userPrompt.trim() !== "") {
       try {
         const res = await fetch("/api", {
           method: "POST",
@@ -83,7 +83,7 @@ const SubmitForm = () => {
             scrollbarWidth: "none",
           }}
         />
-        <div className="absolute bottom-2 right-2  bg-slate-200 flex justify-center items-center rounded-full h-10 w-10">
+        <div className="absolute bottom-2 right-2 bg-slate-200 flex justify-center items-center rounded-full h-10 w-10">
           <button
             type="submit"
             className="h-8 w-8 flex justify-center items-center"
