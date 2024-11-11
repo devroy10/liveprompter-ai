@@ -1,13 +1,16 @@
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
-import { Sidebar } from "./components/Sidebar"
+import { Sidebar } from "./Sidebar"
 import { Outlet } from "react-router-dom"
 
-// export default function Layout({ children }: { children: React.ReactNode }) {
 const Layout = () => {
+    const cookieStore = document.cookie;
+    const defaultOpen = cookieStore.split("sidebar=")[1] === "true";
+    console.log(cookieStore, defaultOpen)
+
     return (
 
-        <SidebarProvider>
+        <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
             <SidebarInset>
                 <Sidebar />
