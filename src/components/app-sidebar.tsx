@@ -33,9 +33,9 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Personal",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "Free Trial",
     },
     {
       name: "Acme Corp.",
@@ -45,26 +45,26 @@ const data = {
     {
       name: "Evil Corp.",
       logo: Command,
-      plan: "Free",
+      plan: "Enterprise",
     },
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Modes",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "work with Audio",
           url: "#",
         },
         {
-          title: "Starred",
+          title: "work with Images",
           url: "#",
         },
         {
-          title: "Settings",
+          title: "work with Documents",
           url: "#",
         },
       ],
@@ -75,15 +75,19 @@ const data = {
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title: "Prompty",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Notesy",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "Cademia",
+          url: "#",
+        },
+        {
+          title: "DevX",
           url: "#",
         },
       ],
@@ -135,7 +139,7 @@ const data = {
       ],
     },
   ],
-  projects: [
+  history: [
     {
       name: "Design Engineering",
       url: "#",
@@ -162,7 +166,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavProjects projects={data.history} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
