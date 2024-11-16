@@ -25,8 +25,6 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // useEffect(() => {}, []);
-
   return (
     <StateContext.Provider
       value={{
@@ -47,17 +45,3 @@ ContextProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-// export const useStateContext = () => useContext(StateContext);
-
-// export const useStateContext = () => {
-//   const context = useContext(StateContext);
-//   if (!context) {
-//     throw new Error("useStateContext must be used within a StateProvider");
-//   }
-//   return context;
-// };
-
-
-//  ContextProvider.propTypes = {
-//    children: PropTypes.node.isRequired,
-//  };
