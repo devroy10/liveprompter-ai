@@ -20,7 +20,7 @@ export default function Home() {
                 <div className="flex items-center space-x-2">
                     <MessageSquare className="h-8 w-8 text-primary" />
                     {/* <span className="text-2xl font-bold">SpeedyAI</span> */}
-                    <span className="text-2xl font-bold">LivePrompter AI</span>
+                    <span className="text-2xl font-bold">LiveTools AI</span>
                 </div>
                 <nav>
                     <ul className="flex space-x-4">
@@ -51,7 +51,7 @@ export default function Home() {
 
                 <section id="features" className="bg-muted py-20">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center mb-12">Why Choose LivePrompter AI?</h2>
+                        <h2 className="text-3xl font-bold text-center mb-12">Why Choose LiveTools AI?</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <FeatureCard
                                 icon={<Zap className="h-10 w-10 text-primary" />}
@@ -74,7 +74,7 @@ export default function Home() {
 
                 <section id="demo" className="py-20">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center mb-12">See LivePrompter AI in Action</h2>
+                        <h2 className="text-3xl font-bold text-center mb-12">See LiveTools AI in Action</h2>
                         <div className="bg-muted p-4 rounded-lg shadow-lg max-w-2xl mx-auto">
                             <div className="bg-background rounded-lg p-4 space-y-4">
                                 <ChatMessage user="You" message="How quickly can you respond?" />
@@ -89,7 +89,7 @@ export default function Home() {
                 <section className="bg-primary text-primary-foreground py-20">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold mb-6">Ready to Experience Lightning-Fast AI?</h2>
-                        <p className="text-xl mb-8">Sign up for our beta and be among the first to try LivePrompter AI</p>
+                        <p className="text-xl mb-8">Sign up for our beta and be among the first to try LiveTools AI</p>
                         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
                             <Input
                                 type="email"
@@ -109,7 +109,7 @@ export default function Home() {
 
             <footer className="bg-muted py-6">
                 <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-                    © 2024 LivePrompter AI. All rights reserved.
+                    © 2024 LiveTools AI. All rights reserved.
                 </div>
             </footer>
             <Outlet />
